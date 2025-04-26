@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>簡易電卓</h1>
+    <input id="text1" type="text" value="0">+
+    <input id="text2" type="text" value="0">=
+    <input id="text3" type="text" value="0">
+    <br>
+    <button id="button1" type="button">加算入力</button>
+    <br>
+    <input id="text4" type="text" value="0">-
+    <input id="text5" type="text" value="0">=
+    <input id="text6" type="text" value="0">
+    <br>
+    <button id="button2" type="button">減算入力</button>
+    <br>
+    <input id="text7" type="text" value="0">×
+    <input id="text8" type="text" value="0">=
+    <input id="text9" type="text" value="0">
+    <br>
+    <button id="button3" type="button">乗算入力</button>
+    <br>
+    <input id="text10" type="text" value="0">÷
+    <input id="text11" type="text" value="0">=
+    <input id="text12" type="text" value="0">
+    <br>
+    <button id="button4" type="button">徐算入力</button>
+    <br>
+    <input id="text13" type="text" value="0">%
+    <input id="text14" type="text" value="0">=
+    <input id="text15" type="text" value="0">
+    <br>
+    <button id="button5" type="button">％入力</button>
+    <br>
+    <script>
+        // 加算
+        document.getElementById("button1").addEventListener("click", () => {
+            const num1 = parseFloat(document.getElementById("text1").value);
+            const num2 = parseFloat(document.getElementById("text2").value);
+            document.getElementById("text3").value = num1 + num2;
+        });
+
+        // 減算
+        document.getElementById("button2").addEventListener("click", () => {
+            const num1 = parseFloat(document.getElementById("text4").value);
+            const num2 = parseFloat(document.getElementById("text5").value);
+            document.getElementById("text6").value = num1 - num2;
+        });
+
+        // 乗算
+        document.getElementById("button3").addEventListener("click", () => {
+            const num1 = parseFloat(document.getElementById("text7").value);
+            const num2 = parseFloat(document.getElementById("text8").value);
+            document.getElementById("text9").value = num1 * num2;
+        });
+
+        // 除算
+        document.getElementById("button4").addEventListener("click", () => {
+            const num1 = parseFloat(document.getElementById("text10").value);
+            const num2 = parseFloat(document.getElementById("text11").value);
+            if (num2 === 0) {
+                document.getElementById("text12").value = "無限大 (0で割れません)";
+            } else {
+                document.getElementById("text12").value = num1 / num2;
+            }
+        });
+
+        // パーセント（ここでは単純にnum1 / 100 * num2 と解釈しました）
+        document.getElementById("button5").addEventListener("click", () => {
+            const num1 = parseFloat(document.getElementById("text13").value);
+            const num2 = parseFloat(document.getElementById("text14").value);
+            document.getElementById("text15").value = (num1 / 100) * num2;
+        });
+    </script>
+</body>
+</html>
